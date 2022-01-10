@@ -1,17 +1,23 @@
 import { html, fixture, expect } from '@open-wc/testing';
-// import { stub } from 'sinon';
+import Sinon from 'sinon';
 import '../src/LoanBasicDetails/BasicDetails.js';
 
 const component = await fixture(html `<basic-details></basic-details>`);
-const button = el.shadowRoot.querySelectorAll('lion-button');
+const button = component.shadowRoot.querySelectorAll('lion-button');
 
 describe('Basic details', () => {
-  // Write test cases inside this block
-  // refer basic-details.js files
-
+  
  it('component access', () => {
    expect(component).to.be.accessible; });
 
-it('button ')
+   it('button action', () => {
+    const action = Sinon.spy(component,"_toDashboard")
+    button[0].click();
+    expect(action.calledOnce).to.be.false; });
+
+    // it('button action1', () => {
+    //   const action = Sinon.spy(component,"_captureDetails")
+    //   button[1].click();
+    //   expect(action.calledOnce).to.be.false; });
 
 });
