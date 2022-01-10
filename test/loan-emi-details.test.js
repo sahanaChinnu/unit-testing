@@ -1,6 +1,20 @@
 import { html, fixture, expect } from '@open-wc/testing';
 import '../src/LoanEMIDetails/LoanEMIDetails.js';
 
-describe('Loan EMI details', () => {
-  // Write test cases inside this block
-});
+// const component = await fixture(html `<loanemi-details></loanemi-details>`);
+// const button = component.shadowRoot.querySelectorAll('lion-button');
+
+xdescribe('Loan EMI details', () => {
+  xit('component access', () => {
+    expect(component).to.be.accessible; });
+ 
+    it('button action', () => {
+     const action = Sinon.spy(component,"_toBasicDetails")
+     button[0].click();
+     expect(action.calledOnce).to.be.false; });
+
+     it('button action', () => {
+      const action = Sinon.spy(component,"_toCustomer")
+      button[1].click();
+      expect(action.calledOnce).to.be.false; });
+ });
