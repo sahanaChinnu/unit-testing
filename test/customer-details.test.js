@@ -12,6 +12,6 @@ describe('customer details', () => {
     it('button action', () => {
      const action = Sinon.spy(component,"_toEmidetails")
      button.click();
-     expect(action.calledOnce).to.be.false; });
+     expect(action.calledOnce).to.be.true; });
 
 });
