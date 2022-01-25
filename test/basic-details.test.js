@@ -13,11 +13,19 @@ describe('Basic details', () => {
    it('button action', () => {
     const action = Sinon.spy(component,"_toDashboard")
     button[0].click();
-    expect(action.calledOnce).to.be.false; });
+    expect(action.calledOnce).to.be.true; });
 
-    // it('button action1', () => {
-    //   const action = Sinon.spy(component,"_captureDetails")
-    //   button[1].click();
-    //   expect(action.calledOnce).to.be.false; });
+     it('button action1', () => {
+       const action = Sinon.spy(component,"_captureDetails")
+       button[1].click();
+       expect(action.calledOnce).to.be.false; });
+
+      
+       it('check number to words', () => {
+        const value = 1000;
+        let number = 1000;
+        component._numToWord(value, number);
+        expect(number).to.equal(1000.00);
+      });
 
 });
