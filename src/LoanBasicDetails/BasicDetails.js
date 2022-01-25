@@ -195,10 +195,10 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
       </lion-form>
 
       <div class="btn-prev-nxt-parent">
-        <lion-button class="btn-previous btn" @click=${this._toDashboard}
+        <lion-button class="btn-previous btn" @click=${()=>this._toDashboard()}
           >${localize.msg('change-language:btnPrev')}</lion-button
         >
-        <lion-button @click=${this._captureDetails} class="btn-next btn"
+        <lion-button @click=${()=>this._captureDetails} class="btn-next btn"
           >${localize.msg('change-language:btnNext')}</lion-button
         >
       </div>
@@ -208,7 +208,7 @@ export class BasicDetails extends LocalizeMixin(LitElement) {
   _numToWord() {
     //  console.log(e.key)
     const val = this.shadowRoot.querySelector('.amount').value;
-    const num = parseFloat(val.replace(/,/g, ''));
+    const num = parseFloat(()=>val.replace(/,/g, ''));
     this.shadowRoot.querySelector('#word').innerHTML = inWords(num);
     // this.shadowRoot.querySelector('#word').innerHTML = numWords(num)
     // console.log(inWords(num))
