@@ -49,7 +49,14 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
 
   connectedCallback() {
     super.connectedCallback();
-    this._data = JSON.parse(localStorage.getItem('emi'));
+   // this._data = JSON.parse(localStorage.getItem('emi'));
+    this._data= {
+      interestRate:7,
+      monthlyEMI:2000,
+      principal:1200,
+      interest:800,
+      totalAmount:20000
+    };
     this.requestUpdate();
   }
 
@@ -60,9 +67,15 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
   }
 
   render() {
-    //   if(this.data !== undefined){
-    //     this._data=[...this.data];
-    // }
+    if(this.data !== undefined){
+      this._data= {
+        interestRate:7,
+        monthlyEMI:2000,
+        principal:1200,
+        interest:800,
+        totalAmount:20000
+      };
+     }
     // console.log(this._data);
 
     return html`
@@ -91,10 +104,10 @@ export class LoanEMIDetails extends LocalizeMixin(LitElement) {
           </p>
         </div>
         <div class="btn-cont">
-          <lion-button class="cancel-btn btn" @click=${this._toBasicDetails}
+          <lion-button class="cancel-btn btn" @click=${()=>this._toBasicDetails()}
             >${localize.msg('change-language:btnCancel')}</lion-button
           >
-          <lion-button @click=${this._toCustomer} class="continue-btn btn"
+          <lion-button @click=${()=>this._toCustomer()} class="continue-btn btn"
             >${localize.msg('change-language:btnCont')}</lion-button
           >
         </div>
