@@ -16,7 +16,7 @@ describe('Success screen ', () => {
     it('button action', () => {
      const action = Sinon.spy(successComponent,"_toHome")
      successbutton.click();
-     expect(action.calledOnce).to.be.false; });
+     expect(action.calledOnce).to.be.true; });
 
 });
 
@@ -27,5 +27,5 @@ describe('error screen', () => {
     it('button action', () => {
      const action = Sinon.spy(errorComponent,"_toHome")
      errorButton.click();
-     expect(action.calledOnce).to.be.false; });
+     expect(action.calledOnce).to.be.true; });
 });
